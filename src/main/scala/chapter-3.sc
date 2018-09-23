@@ -265,3 +265,7 @@ maximumViaFold(myIntTree) == 3
 def depthViaFold[A](t: Tree[A]): Int = fold(t)(_ => 1)((leftDepth, rightDepth) => 1 + (leftDepth max rightDepth))
 
 depthViaFold(myTree) == 3
+
+def mapViaFold[A, B](t: Tree[A])(f: A => B): Tree[B] = fold(t)(el => Leaf(f(el)): Tree[B])(Branch(_, _))
+
+mapViaFold(myTree)(_ * 3) == Branch(Leaf("aaa"), Branch(Leaf("bbb"), Leaf("ccc")))
