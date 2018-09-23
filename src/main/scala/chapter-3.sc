@@ -204,3 +204,64 @@ val supList = List(1, 2, 3, 4)
 hasSubsequence(supList, List()) == true
 hasSubsequence(supList, List(2, 3)) == true
 hasSubsequence(supList, List(4)) == true
+
+//
+// TREES
+//
+
+sealed trait Tree[+A]
+case class Leaf[A](value: A) extends Tree[A]
+case class Branch[A](left: Tree[A], right: Tree[A]) extends Tree[A]
+
+val myTree = Branch(Leaf("a"), Branch(Leaf("b"), Leaf("c")))
+
+def size[A](t: Tree[A]): Int = t match {
+  case Leaf(_) => 1
+  case Branch(left, right) => 1 + size(left) + size(right)
+}
+
+size(myTree) == 5
+
+val myIntTree = Branch(Leaf(1), Branch(Leaf(2), Leaf(3)))
+
+def maximum(t: Tree[Int]): Int = t match {
+  case Leaf(x) => x
+  case Branch(left, right) => maximum(left) max maximum(right)
+}
+
+maximum(myIntTree) == 3
+
+def depth[A](t: Tree[A]): Int = t match {
+  case Leaf(x) => 1
+  case Branch(left, right) => {
+    val leftDepth = depth(left)
+    val rightDepth = depth(right)
+    leftDepth max rightDepth + 1
+  }
+}
+
+depth(myTree) == 3
+
+def map[A, B](t: Tree[A])(f: A => B): Tree[B] = t match {
+  case Leaf(x) => Leaf(f(x))
+  case Branch(left, right) => Branch(map(left)(f), map(right)(f))
+}
+
+map(myTree)(_ * 3) == Branch(Leaf("aaa"), Branch(Leaf("bbb"), Leaf("ccc")))
+
+def fold[A, B](t: Tree[A])(f: A => B)(g: (B, B) => B): B = t match {
+  case Leaf(x) => f(x)
+  case Branch(left, right) => g(fold(left)(f)(g), fold(right)(f)(g))
+}
+
+def sizeViaFold[A](t: Tree[A]): Int = fold(t)(_ => 1)(1 + _ + _)
+
+sizeViaFold(myTree) == 5
+
+def maximumViaFold(t: Tree[Int]): Int = fold(t)(x => x)(_ max _)
+
+maximumViaFold(myIntTree) == 3
+
+def depthViaFold[A](t: Tree[A]): Int = fold(t)(_ => 1)((leftDepth, rightDepth) => 1 + (leftDepth max rightDepth))
+
+depthViaFold(myTree) == 3
