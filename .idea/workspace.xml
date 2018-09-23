@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e9cc7a4-877e-41e9-b012-0b4b93b4eec6" name="Default" comment="" />
+    <list default="true" id="5e9cc7a4-877e-41e9-b012-0b4b93b4eec6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/scala/chapter-3.sc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/chapter-3.sc" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -32,8 +34,8 @@
       <file leaf-file-name="chapter-3.sc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/chapter-3.sc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1220">
-              <caret line="99" column="47" lean-forward="true" selection-start-line="99" selection-start-column="47" selection-end-line="99" selection-end-column="47" />
+            <state relative-caret-position="965">
+              <caret line="184" column="59" lean-forward="true" selection-start-line="184" selection-start-column="59" selection-end-line="184" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -306,8 +308,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/chapter-3.sc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1220">
-          <caret line="99" column="47" lean-forward="true" selection-start-line="99" selection-start-column="47" selection-end-line="99" selection-end-column="47" />
+        <state relative-caret-position="965">
+          <caret line="184" column="59" lean-forward="true" selection-start-line="184" selection-start-column="59" selection-end-line="184" selection-end-column="59" />
         </state>
       </provider>
     </entry>
